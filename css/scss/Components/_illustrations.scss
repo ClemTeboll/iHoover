@@ -1,0 +1,15 @@
+img {
+    height: 100px;
+    width: auto;
+    &.reload {
+        height: 40px;
+        margin-right: 5%;
+    }
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5%;
+}

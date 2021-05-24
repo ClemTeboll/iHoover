@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/icone-logo-aspirateur.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>iHoover | Aspirateur automatique</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="image">
+                <img src="./images/logo-aspirateur.svg" alt="logo">
+            </div>
+            <div>
+                <h1>iHoover</h1>
+            </div>
+        </header>
+    
+        <section>
+            <article class="premiere-partie">
+                <h2>Your best friend ever</h2>
+    
+                <p>Votre aspirateur iHoover nettoie vos pièces selon vos désirs.</p>
+                <p>Pour le paramétrer, procédez de la manière suivante. <br>
+                    Indiquez&nbsp;:</p>
+    
+                <ul>
+                    <li>Les dimensions de la pièce (longueur et largeur) en <span class="bold">nombre de cases</span></li>
+                    <li>L'orientation initiale de l'appareil <span class="bold">(points cardinaux).</span></li>
+                    <li>La position initiale de l'appareil <span class="bold">(sur quelle case&nbsp;?)</span> </li>
+                    <li>Les instructions pour le déplacer&nbsp;:</li>
+                    <ul>
+                        <li>G pour tourner à gauche de 90°</li>
+                        <li>D pour tourner à droite de 90°</li>
+                        <li>A pour avancer</li>
+                    </ul>
+                </ul>
+
+
+                <p>Votre pièce sera <span class="bold">propre&nbsp;!</span></p>
+                <p>NB&nbsp;: la lettre indiquant l'orientation utilise la notation cardinale anglaise (N pour North (Nord), E pour East (Est), W pour West (Ouest) et S pour South (Sud)).</p>
+    
+            </article>
+    
+            <article class="caracteristiques">
+    
+                <h2>Paramétrez votre appareil</h2>
+    
+                <div>
+
+                    <p class="bold">Mesurez votre pièce&nbsp;:</p>
+                    <div class="height-width">
+                        <div class="height-width__1">
+                            <label for="width">Longueur&nbsp;:</label>
+                            <input type="number" id="width">
+                        </div>
+                        <div class="height-width__2">
+                            <label for="height">Largeur&nbsp;:</label>
+                            <input type="number" id="height">
+                        </div>
+                    </div>
+    
+                </div>
+
+                <div>
+                    <p class="bold">Position initiale de l'aspirateur</p>
+                    <label for="x">x&nbsp;:</label>
+                    <input id="forX" type="number">
+                    <label for="y">y&nbsp;:</label>
+                    <input id="forY" type="number">
+                </div>
+    
+                <div>
+                    <p class="bold">Orientation initiale de l'appareil&nbsp;:</p>
+                    <select name="cardinal-points" id="cardinal-points">
+                        <option value="N">Nord</option>
+                        <option value="S">Sud</option>
+                        <option value="E">Est</option>
+                        <option value="W">Ouest</option>
+                    </select>
+                </div>
+    
+                <div>
+                    <p class="bold">Instructions&nbsp;:</p>
+    
+                    <div class="btn">
+                        <button type="button" id="btn-G" value="G">G</button>
+                        <button type="button" id="btn-D" value="D">D</button>
+                        <button type="button" id="btn-A" value="A">A</button>
+                        <button type="button" id="btn-Suppr">Suppr.</button>
+
+                        <p class="bold">Valeurs choisies &nbsp;: <span id="instructions-choice"></span></p>
+
+                    </div>
+                </div>
+    
+                <div class="btn">
+                    <button type="button" id="execute">Lancer l'exécution</button>
+                </div>
+    
+                <div>
+                    <p class="bold">Données finales de l'aspirateur&nbsp;:</p>
+                    <p>Position x finale&nbsp;: <span id="final-x" class="bold"></span></p>
+                    <p>Position y finale&nbsp;: <span id="final-y" class="bold"></span></p>
+                    <p>Orientation finale&nbsp;: <span id="final-direction" class="bold"></span></p>
+                </div>
+
+                <div id="reload">
+                    <img class="reload" src="./images/Reload.png" alt="reload">
+                    <h2 class="reload__text">Recommencer</h2>
+                </div>
+    
+            </article>
+    
+        </section>
+    
+        <footer>
+            <p><a href="mailto:clement.llobet@tutanota.com">Contact</a></p>
+        </footer>
+
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
