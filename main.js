@@ -1,4 +1,21 @@
-/* Get width, height and direction values */
+// Cardinal points object
+class cardinalPoints {
+
+    constructor(mainDirection, leftDirection, rightDirection) {
+        this.mainDirection = mainDirection;
+        this.leftDirection = leftDirection;
+        this.rightDirection = rightDirection;
+    }
+
+}
+
+let north = new cardinalPoints("N", "W", "E");
+let east = new cardinalPoints("E", "N", "S");
+let south = new cardinalPoints("S", "E", "W");
+let west = new cardinalPoints("W", "S", "N");
+
+
+/* Get width, height and direction values, transform in integer */
 const widthValue = document.getElementById('width').value;
 const forWidth = parseInt(widthValue);
 
@@ -18,33 +35,15 @@ const forY = parseInt(yValue);
 /* Push instructions in array function */
 const forInstructions = [];
 
+const classInstructions = document.querySelectorAll('button.instructions');
 
-const btnG = document.getElementById("btn-G");
-
-btnG.addEventListener('click', () => {
-    forInstructions.push(btnG.value);
-    const instructionsChoice = document.querySelector('#instructions-choice');
-    instructionsChoice.innerHTML = forInstructions.join(' - ');
+classInstructions.forEach((button) => {
+    button.addEventListener('click', function(){
+        forInstructions.push(this.value);
+        const instructionsChoice = document.querySelector('#instructions-choice');
+        instructionsChoice.innerHTML = forInstructions.join(' - ');
+    })
 })
-
-
-const btnD = document.getElementById("btn-D");
-
-btnD.addEventListener('click', () => {
-    forInstructions.push(btnD.value);
-    const instructionsChoice = document.querySelector('#instructions-choice');
-    instructionsChoice.innerHTML = forInstructions.join(' - ');
-})
-
-
-const btnA = document.getElementById("btn-A");
-
-btnA.addEventListener('click', () => {
-    forInstructions.push(btnA.value);
-    const instructionsChoice = document.querySelector('#instructions-choice');
-    instructionsChoice.innerHTML = forInstructions.join(' - ');
-})
-
 
 /* Delete last array element function */
 const btnSuppr = document.getElementById("btn-Suppr");
@@ -55,7 +54,6 @@ btnSuppr.addEventListener('click', () => {
 })
 
 
-
 /* Hoover mooving function */
 const execute = (width, height, x, y, direction, instructions) => {
 
@@ -64,53 +62,53 @@ const execute = (width, height, x, y, direction, instructions) => {
         switch(instructions[i]) {
             // Check instructions and change directions
             case 'D':
-                if (direction === "N") {
-                    direction = "E";
+                if (direction === north.mainDirection) {
+                    direction = north.rightDirection;
                 }
-                else if (direction === "E") {
-                    direction = "S";
+                else if (direction === east.mainDirection) {
+                    direction = east.rightDirection;
                 }
-                else if (direction === "S") {
-                    direction = "W";
+                else if (direction === south.mainDirection) {
+                    direction = south.rightDirection;
                 }
-                else if (direction === "W") {
-                    direction = "N";
+                else if (direction === west.mainDirection) {
+                    direction = west.rightDirection;
                 }
             break;
             
             case 'G':
-                if (direction === "N") {
-                    direction = "W";
+                if (direction === north.mainDirection) {
+                    direction = north.leftDirection;
                 }
-                else if (direction === "W") {
-                    direction = "S";
+                else if (direction === west.mainDirection) {
+                    direction = west.leftDirection;
                 }
-                else if (direction === "S") {
-                    direction = "E";
+                else if (direction === south.mainDirection) {
+                    direction = south.leftDirection;
                 }
-                else if (direction === "E") {
-                    direction = "N";
+                else if (direction === east.mainDirection) {
+                    direction = east.leftDirection;
                 }
             break;
             
             case 'A':
             // if instruction = A, according to direction, move forward or backward x and y.
-                    if (direction === "E") {
+                    if (direction === east.mainDirection) {
                     
-                        if (x + 1 < width) {
+                        if (x + 1 <= width) {
                             x = x + 1;
                         }
                     
                      }
                  
-                     else if (direction === "S") {
+                     else if (direction === south.mainDirection) {
                     
                         if (y - 1 > 0) {
                             y = y - 1;
                         }
                      }
                  
-                     else if (direction === "W") {
+                     else if (direction === west.mainDirection) {
                     
                         if (x - 1 > 0) {
                             x = x - 1;
@@ -118,9 +116,9 @@ const execute = (width, height, x, y, direction, instructions) => {
 
                      }
                  
-                     else if (direction === "N") {
+                     else if (direction === north.mainDirection) {
                     
-                        if (y + 1 < height) {
+                        if (y + 1 <= height) {
                             y = y + 1;
                         }
                      }
