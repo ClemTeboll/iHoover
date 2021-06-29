@@ -59,33 +59,36 @@
                     <div class="height-width">
                         <div class="height-width__1">
                             <label for="width">Longueur&nbsp;:</label>
-                            <input type="number" id="width">
+                            <input class="data" type="number" value="0" id="widthNumber">
                         </div>
                         <div class="height-width__2">
                             <label for="height">Largeur&nbsp;:</label>
-                            <input type="number" id="height">
+                            <input class="data" type="number" value="0" id="heightNumber">
                         </div>
                     </div>
     
                 </div>
 
                 <div>
-                    <p class="bold">Position initiale de l'aspirateur</p>
-                    <label for="x">x&nbsp;:</label>
-                    <input id="forX" type="number">
-                    <label for="y">y&nbsp;:</label>
-                    <input id="forY" type="number">
-                </div>
-    
-                <div>
                     <p class="bold">Orientation initiale de l'appareil&nbsp;:</p>
-                    <select name="cardinal-points" id="cardinal-points">
+                    <select class="data" name="cardinal-points" id="cardinal-points">
+                        <option value="choice">Direction : </option>
                         <option value="N">Nord</option>
                         <option value="S">Sud</option>
                         <option value="E">Est</option>
                         <option value="W">Ouest</option>
                     </select>
                 </div>
+
+                <div>
+                    <p class="bold">Position initiale de l'aspirateur</p>
+                    <label for="x">x&nbsp;:</label>
+                    <input class="data" id="forX" type="number" value="0">
+                    <label for="y">y&nbsp;:</label>
+                    <input class="data" id="forY" type="number" value="0">
+                </div>
+    
+                
     
                 <div>
                     <p class="bold">Instructions&nbsp;:</p>
@@ -112,11 +115,6 @@
                     <p>Orientation finale&nbsp;: <span id="final-direction" class="bold"></span></p>
                 </div>
 
-                <div id="reload">
-                    <img class="reload" src="./images/Reload.png" alt="reload">
-                    <h2 class="reload__text">Recommencer</h2>
-                </div>
-    
             </article>
     
         </section>
@@ -128,7 +126,6 @@
     </div>
 
     <script src="./main.js"></script>
-    <!-- <script src="./test.js"></script> -->
 </body>
 
 </html>

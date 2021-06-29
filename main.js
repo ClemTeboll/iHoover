@@ -15,21 +15,52 @@ let south = new cardinalPoints("S", "E", "W");
 let west = new cardinalPoints("W", "S", "N");
 
 
+
 /* Get width, height and direction values, transform in integer */
-const widthValue = document.getElementById('width').value;
-const forWidth = parseInt(widthValue);
 
-const heightValue = document.getElementById('height').value;
-const forHeight = parseInt(heightValue);
+let forWidth;
+let forHeight;
+let forDirection;
+let forX;
+let forY;
 
-const forDirection = document.getElementById('cardinal-points').value;
+
+
+const widthElement = document.getElementById('widthNumber');
+
+widthElement.addEventListener('change', () => {
+    forWidth = parseInt(widthElement.value);
+})
+
+
+
+const heightElement = document.getElementById('heightNumber');
+
+heightElement.addEventListener('change', () => {
+    forHeight = parseInt(heightElement.value);
+})
+
+
+const directionElement = document.getElementById('cardinal-points');
+
+directionElement.addEventListener("change", () => {
+    forDirection = directionElement.value;
+})
+
 
 /* Get x and y values, transform in integer */
-const xValue = document.getElementById('forX').value;
-const forX = parseInt(xValue);
+const xElement = document.getElementById('forX');
 
-const yValue = document.getElementById('forY').value;
-const forY = parseInt(yValue);
+xElement.addEventListener('change', () => {
+    forX = parseInt(xElement.value);
+})
+
+
+const yElement = document.getElementById('forY');
+
+yElement.addEventListener('change', () => {
+    forY = parseInt(yElement.value);
+})
 
 
 /* Push instructions in array function */
@@ -148,13 +179,6 @@ const execute = (width, height, x, y, direction, instructions) => {
 const buttonExecute = document.querySelector('#execute');
 
 buttonExecute.addEventListener('click', () => {
+    
     execute(forWidth, forHeight, forX, forY, forDirection, forInstructions);
-})
-
-
-/* Reload function */
-const reloadBtn = document.querySelector('#reload');
-
-reloadBtn.addEventListener('click', () => {
-    window.location.reload();
 })
